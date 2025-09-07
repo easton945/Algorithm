@@ -48,5 +48,4 @@ int main() {
     printArray(arr);
 
     return 0;
-    system("pause");
 }
