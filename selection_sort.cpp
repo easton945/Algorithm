@@ -1,51 +1,44 @@
-// C++ program to implement Selection Sort
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-void selectionSort(vector<int> &arr) {
-    int n = arr.size();
-
-    for (int i = 0; i < n - 1; ++i) {
-
-        // Assume the current position holds
-        // the minimum element
-        int min_idx = i;
-
-        // Iterate through the unsorted portion
-        // to find the actual minimum
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[j] < arr[min_idx]) {
-
-                // Update min_idx if a smaller
-                // element is found
-                min_idx = j; 
+void selection_sort(vector<int>& arr , int s){
+    for(int i = 0; i < s - 1; i++){
+        int minidx = i;
+        for(int j = i + 1; j < s; j++){
+            if(arr[minidx] > arr[j]){
+                minidx = j;
             }
         }
-
-        // Move minimum element to its
-        // correct position
-        swap(arr[i], arr[min_idx]);
+        swap(arr[i], arr[minidx]);
     }
-}
 
-void printArray(vector<int> &arr) {
-    for (int &val : arr) {
-        cout << val << " ";
+}
+// 找到最小element，把它放到第一個，再看剩下的element重複做
+void printArr(vector<int> arr){
+    for(int i: arr){
+        cout << i << " ";
     }
     cout << endl;
 }
 
-int main() {
-    vector<int> arr = {64, 25, 12, 22, 11};
-
-    cout << "Original array: ";
-    printArray(arr); 
-
-    selectionSort(arr);
-
-    cout << "Sorted array: ";
-    printArray(arr);
-
+int main(){
+    vector<int>arr;
+    int quantity;
+    cout << "Enter how many numbers you want in an array:";
+    cin >> quantity;
+    cout << "Enter the numbers" << endl;
+    for(int i = 0; i < quantity; i++){
+        int num;
+        cin >> num;
+        arr.push_back(num);
+    }
+    cout << "Original array:";
+    printArr(arr);
+    selection_sort(arr, quantity);
+    cout << "After selection sort:";
+    printArr(arr);
+    system("pause");
     return 0;
 }
