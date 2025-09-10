@@ -14,8 +14,7 @@ void insertion_sort_swap(vector<int>& arr , int s){
         }
     }
 }
-//4 5 3 2 1 -> 4 5 5 2 1 -> 3 4 5 2 1
-// 5 4 3 2 1
+//4 5 3 2 1 -> 4 3 5 2 1 -> 3 4 5 2 1
 void printArr(vector<int> arr){
     for(int i: arr){
         cout << i << " ";
@@ -32,8 +31,8 @@ void insertion_sort_key(vector<int>& arr, int s){
         }
         arr[j + 1] = key;
     }
-    
 }
+//4 5 3 2 1 -> 4 5 5 2 1 -> 3 4 5 2 1
 //從第二個開始看，若是比前面小就往前移動
 int main(){
     vector<int>arr;
@@ -51,6 +50,5 @@ int main(){
     insertion_sort_key(arr, quantity);
     cout << "After insertion sort:";
     printArr(arr);
-    system("pause");
     return 0;
 }
